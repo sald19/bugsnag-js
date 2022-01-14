@@ -70,8 +70,20 @@ allprojects {
     repositories {
         maven { url facebookRepo }
         maven { url bugsnagRepo }
-        jcenter()
+        mavenCentral()
         google()
+
+        if (System.getenv('MAVEN_REPO_URL') && System.getenv('MAVEN_REPO_CREDS')) {
+          maven {
+            url(System.getenv('MAVEN_REPO_URL'))
+            credentials(HttpHeaderCredentials) {
+              name 'Authorization'
+              value "Basic ${System.getenv('MAVEN_REPO_CREDS')}"
+            }
+          }
+        } else {
+          jcenter()
+        }
     }
 }
 

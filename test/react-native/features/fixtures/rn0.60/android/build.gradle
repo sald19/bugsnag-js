@@ -37,8 +37,21 @@ allprojects {
             url("$rootDir/../node_modules/jsc-android/dist")
         }
 
+        mavenCentral()
         google()
-        jcenter()
+
+        if (System.getenv('MAVEN_REPO_URL') && System.getenv('MAVEN_REPO_CREDS')) {
+          maven {
+            url(System.getenv('MAVEN_REPO_URL'))
+            credentials(HttpHeaderCredentials) {
+              name 'Authorization'
+              value "Basic ${System.getenv('MAVEN_REPO_CREDS')}"
+            }
+          }
+        } else {
+          jcenter()
+        }
+
         maven { url 'https://www.jitpack.io' }
     }
 }
