@@ -108,9 +108,7 @@ steps:
     artifact_paths:
       - build/r_navigation_0.60.apk
 
-  # See: PLAT-5173
   - label: ':ios: Build react-navigation 0.60 ipa'
-    skip: "See PLAT-5173"
     key: "react-navigation-0-60-ipa"
     timeout_in_minutes: 60
     agents:
@@ -139,9 +137,7 @@ steps:
     artifact_paths:
       - build/r_navigation_0.63.apk
 
-  # See: PLAT-5173
   - label: ':ios: Build react-navigation 0.63 ipa'
-    skip: "See PLAT-5173"
     key: "react-navigation-0-63-ipa"
     timeout_in_minutes: 60
     agents:
@@ -170,9 +166,7 @@ steps:
     artifact_paths:
       - build/r_native_navigation_0.60.apk
 
-  # See: PLAT-5173
   - label: ':ios: Build react-native-navigation 0.60 ipa'
-    skip: "See PLAT-5173"
     key: "react-native-navigation-0-60-ipa"
     timeout_in_minutes: 60
     agents:
@@ -201,9 +195,7 @@ steps:
     artifact_paths:
       - build/r_native_navigation_0.63.apk
 
-  # See: PLAT-5173
   - label: ':ios: Build react-native-navigation 0.63 ipa'
-    skip: "See PLAT-5173"
     key: "react-native-navigation-0-63-ipa"
     timeout_in_minutes: 60
     agents:
@@ -383,9 +375,7 @@ steps:
     concurrency_group: 'browserstack-app'
     concurrency_method: eager
 
-  # See: PLAT-5173
   - label: ':ios: react-navigation 0.60 iOS 13 end-to-end tests'
-    skip: "See PLAT-5173"
     depends_on: "react-navigation-0-60-ipa"
     timeout_in_minutes: 60
     plugins:
@@ -430,9 +420,7 @@ steps:
     concurrency_group: 'browserstack-app'
     concurrency_method: eager
 
-  # See: PLAT-5173
   - label: ':ios: react-navigation 0.63 iOS 13 end-to-end tests'
-    skip: "See PLAT-5173"
     depends_on: "react-navigation-0-63-ipa"
     timeout_in_minutes: 60
     plugins:
@@ -477,9 +465,7 @@ steps:
     concurrency_group: 'browserstack-app'
     concurrency_method: eager
 
-  # See: PLAT-5173
   - label: ':ios: react-native-navigation 0.60 iOS 13 end-to-end tests'
-    skip: "See PLAT-5173"
     depends_on: "react-native-navigation-0-60-ipa"
     timeout_in_minutes: 60
     plugins:
@@ -524,9 +510,7 @@ steps:
     concurrency_group: 'browserstack-app'
     concurrency_method: eager
 
-  # See: PLAT-5173
   - label: ':ios: react-native-navigation 0.63 iOS 13 end-to-end tests'
-    skip: "See PLAT-5173"
     depends_on: "react-native-navigation-0-63-ipa"
     timeout_in_minutes: 60
     plugins:
