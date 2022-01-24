@@ -35,15 +35,15 @@ steps:
 #          run: minimal-packager
 #    artifact_paths: min_packages.tar
 #
-#  - label: ':docker: Build and publish JS packages'
-#    key: 'publish-js'
-#    timeout_in_minutes: 30
-#    plugins:
-#      - docker-compose#v3.9.0:
-#          build: publisher
-#          image-repository: 855461928731.dkr.ecr.us-west-1.amazonaws.com/js
-#    env:
-#      BUILD_RN_WITH_LATEST_NATIVES: ${BUILD_RN_WITH_LATEST_NATIVES}
+  - label: ':docker: Build and publish JS packages'
+    key: 'publish-js'
+    timeout_in_minutes: 30
+    plugins:
+      - docker-compose#v3.9.0:
+          build: publisher
+          image-repository: 855461928731.dkr.ecr.us-west-1.amazonaws.com/js
+    env:
+      BUILD_RN_WITH_LATEST_NATIVES: ${BUILD_RN_WITH_LATEST_NATIVES}
 
 
   #
@@ -81,7 +81,7 @@ steps:
 
   - label: 'Trigger React Native pipeline'
     depends_on:
-#      - 'publish-js'
+      - 'publish-js'
       - 'android-builder-base'
     trigger: 'bugsnag-js-react-native'
     build:

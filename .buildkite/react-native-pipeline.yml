@@ -120,7 +120,7 @@ steps:
       ARTEFACT_NAME: "r_navigation_0.60"
       LANG: "en_US.UTF-8"
       DEVELOPER_DIR: "/Applications/Xcode11.7.app"
-      NOTIFIER_VERSION: 7.15.1
+      #NOTIFIER_VERSION: 7.15.1
     artifact_paths: build/r_navigation_0.60.ipa
     commands:
       - npm run test:build-react-native-ios
@@ -150,7 +150,7 @@ steps:
       JS_SOURCE_DIR: "react_navigation_js"
       ARTEFACT_NAME: "r_navigation_0.63"
       LANG: "en_US.UTF-8"
-      NOTIFIER_VERSION: 7.15.1
+      #NOTIFIER_VERSION: 7.15.1
     artifact_paths: build/r_navigation_0.63.ipa
     commands:
       - npm run test:build-react-native-ios
