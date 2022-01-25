@@ -10,7 +10,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
   And I discard the oldest error
 
-  And I wait for 10 seconds
+  #And I wait for 10 seconds
 
   When I navigate to a different screen
   And I trigger a handled error
@@ -29,7 +29,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
@@ -48,7 +48,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
@@ -67,7 +67,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
@@ -86,7 +86,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
@@ -105,7 +105,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
@@ -124,7 +124,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
@@ -143,7 +143,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
@@ -162,7 +162,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
@@ -181,7 +181,7 @@ Scenario: Navigating when navigation breadcrumbs are disabled only updates conte
 #  And the event does not have a "navigation" breadcrumb
     And I discard the oldest error
 
-    And I wait for 10 seconds
+    #And I wait for 10 seconds
 
     When I navigate to a different screen
     And I trigger a handled error
