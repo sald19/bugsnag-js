@@ -258,7 +258,10 @@ class Client {
   }
 
   _isBreadcrumbTypeEnabled (type) {
+
     const types = this._config.enabledBreadcrumbTypes
+
+    console.log('SKW _isBreadcrumbTypeEnabled. types=' + types + ' and type=' + type)
 
     return types === null || includes(types, type)
   }

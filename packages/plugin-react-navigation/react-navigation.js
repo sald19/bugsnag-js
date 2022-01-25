@@ -6,6 +6,8 @@ class BugsnagPluginReactNavigation {
   }
 
   load (client) {
+    console.log('SKW BugsnagPluginReactNavigation.load.  client = ' + client)
+
     const leaveBreadcrumb = (event, currentRouteName, previousRouteName) => {
       if (!client._isBreadcrumbTypeEnabled('navigation')) return
 
