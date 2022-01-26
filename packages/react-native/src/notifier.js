@@ -58,14 +58,18 @@ const createClient = (jsOpts) => {
 }
 
 const _createClient = (opts, jsOpts) => {
+  console.error('SKW _createClient')
+
   if (jsOpts && typeof jsOpts === 'object') {
     // mutate the options with anything supplied in JS. This will throw
     Object.keys(jsOpts).forEach(k => { opts[k] = jsOpts[k] })
   }
 
+  console.error('SKW new Client')
   const bugsnag = new Client(opts, schema, internalPlugins, { name, version, url })
 
   // if we let JS keep error breadcrumbs, it results in an error containing itself as a breadcrumb
+  console.error(`SKW bugsnag._config.enabledBreadcrumbTypes: ${JSON.stringify(bugsnag._config.enabledBreadcrumbTypes)}`)
   if (bugsnag._config.enabledBreadcrumbTypes !== null) {
     bugsnag._config.enabledBreadcrumbTypes = bugsnag._config.enabledBreadcrumbTypes.filter(t => t !== 'error')
   }

@@ -96,6 +96,8 @@ class Client {
   }
 
   _configure (opts, internalPlugins) {
+    console.error(`SKW _configure. opts = ${JSON.stringify(opts)} internalPlugins = ${JSON.stringify(internalPlugins)}`)
+
     const schema = reduce(internalPlugins, (schema, plugin) => {
       if (plugin && plugin.configSchema) return assign({}, schema, plugin.configSchema)
       return schema
@@ -261,6 +263,9 @@ class Client {
 
     const types = this._config.enabledBreadcrumbTypes
 
+    console.log('SKW _isBreadcrumbTypeEnabled. types=' + JSON.stringify(types) + ' and type=' + type)
+    console.info('SKW _isBreadcrumbTypeEnabled. types=' + JSON.stringify(types) + ' and type=' + type)
+    console.warn('SKW _isBreadcrumbTypeEnabled. types=' + JSON.stringify(types) + ' and type=' + type)
     console.error('SKW _isBreadcrumbTypeEnabled. types=' + JSON.stringify(types) + ' and type=' + type)
 
     return types === null || includes(types, type)

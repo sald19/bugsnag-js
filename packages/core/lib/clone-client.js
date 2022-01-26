@@ -1,6 +1,7 @@
 const assign = require('./es-utils/assign')
 
 module.exports = (client) => {
+  console.error(`SKW clone-client.  config = ${JSON.stringify(client._config)}`)
   const clone = new client.Client({}, {}, [], client._notifier)
 
   clone._config = client._config
