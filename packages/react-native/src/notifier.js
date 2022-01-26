@@ -56,7 +56,7 @@ const createClientAsync = async (jsOpts) => {
 
 const createClient = (jsOpts) => {
   const opts = load(NativeClient, version)
-  console.error(`SKW createClient opts=${opts}`)
+  console.error(`SKW createClient opts=${JSON.stringify(opts)}`)
 
   return _createClient(opts, jsOpts)
 }

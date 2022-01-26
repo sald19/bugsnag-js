@@ -74,6 +74,7 @@ module.exports.load = (
   warn = console.warn
 ) => {
   const nativeOpts = NativeClient.configure({ notifierVersion, engine, reactNativeVersion })
+  console.error(`SKW module.exports.load nativeOpts=${JSON.stringify(nativeOpts)}`)
   return freeze(nativeOpts, warn)
 }
 
