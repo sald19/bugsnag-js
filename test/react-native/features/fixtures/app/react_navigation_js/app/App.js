@@ -78,9 +78,10 @@ export default class App extends Component {
     const jsConfig = defaultJsConfig()
     // eslint-disable-next-line no-new
     new Scenarios[scenarioName](configuration, jsConfig)
-    console.error(`SKW   with config: ${JSON.stringify(configuration)} (native) and ${JSON.stringify(jsConfig)} (js)`)
+    console.error(`SKW config before: ${JSON.stringify(configuration)}`)
     NativeModules.BugsnagTestInterface.startBugsnag(configuration)
       .then(() => {
+        console.error(`SKW config after: ${JSON.stringify(configuration)}`)
         Bugsnag.start(jsConfig)
       })
   }

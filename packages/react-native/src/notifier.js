@@ -62,7 +62,7 @@ const createClient = (jsOpts) => {
 }
 
 const _createClient = (opts, jsOpts) => {
-  console.error('SKW _createClient')
+  console.error(`SKW notifier._createClient opts = ${JSON.stringify(opts)}`)
 
   if (jsOpts && typeof jsOpts === 'object') {
     // mutate the options with anything supplied in JS. This will throw

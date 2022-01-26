@@ -17,8 +17,7 @@ const noop = () => {}
 
 class Client {
   constructor (configuration, schema = config.schema, internalPlugins = [], notifier) {
-    console.error('SKW Client.constructor')
-    console.error('SKW Client.constructor')
+    console.error(`SKW Client.constructor configuration=${JSON.stringify(configuration)}`)
 
     // notifier id
     this._notifier = notifier
