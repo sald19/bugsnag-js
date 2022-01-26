@@ -17,6 +17,9 @@ const noop = () => {}
 
 class Client {
   constructor (configuration, schema = config.schema, internalPlugins = [], notifier) {
+    console.error('SKW Client.constructor')
+    console.error('SKW Client.constructor')
+
     // notifier id
     this._notifier = notifier
 
@@ -262,11 +265,6 @@ class Client {
   _isBreadcrumbTypeEnabled (type) {
 
     const types = this._config.enabledBreadcrumbTypes
-
-    console.log('SKW _isBreadcrumbTypeEnabled. types=' + JSON.stringify(types) + ' and type=' + type)
-    console.info('SKW _isBreadcrumbTypeEnabled. types=' + JSON.stringify(types) + ' and type=' + type)
-    console.warn('SKW _isBreadcrumbTypeEnabled. types=' + JSON.stringify(types) + ' and type=' + type)
-    console.error('SKW _isBreadcrumbTypeEnabled. types=' + JSON.stringify(types) + ' and type=' + type)
 
     return types === null || includes(types, type)
   }

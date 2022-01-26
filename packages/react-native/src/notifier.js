@@ -49,11 +49,15 @@ const CLIENT_METHODS = Object.getOwnPropertyNames(Client.prototype)
 
 const createClientAsync = async (jsOpts) => {
   const opts = await loadAsync(NativeClient, version)
+  console.error(`SKW createClientAsync opts=${opts}`)
+
   return _createClient(opts, jsOpts)
 }
 
 const createClient = (jsOpts) => {
   const opts = load(NativeClient, version)
+  console.error(`SKW createClient opts=${opts}`)
+
   return _createClient(opts, jsOpts)
 }
 
