@@ -61,24 +61,24 @@ export default class App extends Component {
   }
 
   startScenario = () => {
-    console.log(`Running scenario: ${this.state.currentScenario}`)
+    console.error(`SKW Running scenario: ${this.state.currentScenario}`)
     const scenarioName = this.state.currentScenario
     const configuration = this.getConfiguration()
     const jsConfig = defaultJsConfig()
     const scenario = new Scenarios[scenarioName](configuration, jsConfig)
-    console.log(`  with config: ${JSON.stringify(configuration)} (native) and ${JSON.stringify(jsConfig)} (js)`)
+    console.error(`SKW   with config: ${JSON.stringify(configuration)} (native) and ${JSON.stringify(jsConfig)} (js)`)
     this.setState({ scenario: scenario })
     scenario.run()
   }
 
   startBugsnag = () => {
-    console.log(`Starting Bugsnag for scenario: ${this.state.currentScenario}`)
+    console.error(`SKW Starting Bugsnag for scenario: ${this.state.currentScenario}`)
     const scenarioName = this.state.currentScenario
     const configuration = this.getConfiguration()
     const jsConfig = defaultJsConfig()
     // eslint-disable-next-line no-new
     new Scenarios[scenarioName](configuration, jsConfig)
-    console.log(`  with config: ${JSON.stringify(configuration)} (native) and ${JSON.stringify(jsConfig)} (js)`)
+    console.error(`SKW   with config: ${JSON.stringify(configuration)} (native) and ${JSON.stringify(jsConfig)} (js)`)
     NativeModules.BugsnagTestInterface.startBugsnag(configuration)
       .then(() => {
         Bugsnag.start(jsConfig)
