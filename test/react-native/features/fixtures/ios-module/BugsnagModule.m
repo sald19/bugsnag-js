@@ -62,7 +62,11 @@ BugsnagConfiguration *createConfiguration(NSDictionary * options) {
     [config setEnabledReleaseStages:[NSSet setWithArray:options[@"enabledReleaseStages"]]];
   }
   if (options[@"enabledBreadcrumbTypes"] && ![options[@"enabledBreadcrumbTypes"] isEqual:[NSNull null]]) {
+    NSLog(@"SKW BugsnagModule Setting enabledBreadcrumbTypes: %@", options[@"enabledBreadcrumbTypes"]);
     [config setEnabledBreadcrumbTypes:[NSSet setWithArray:options[@"enabledBreadcrumbTypes"]]];
+  }
+    else {
+    NSLog(@"SKW BugsnagModule NOT setting");
   }
   if (options[@"configMetaData"] != nil) {
     NSDictionary *configMetaData = options[@"configMetaData"];

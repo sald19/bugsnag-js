@@ -30,6 +30,8 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(configure:(NSDictionary *)readableMap) {
     [self addRuntimeVersionInfo:readableMap];
 
     BugsnagConfiguration *config = [Bugsnag configuration];
+    NSLog(@"SKW BugsnagReactNative config.enabledBreadcrumbTypes: %@", config.enabledBreadcrumbTypes);
+
     return [self.configSerializer serialize:config];
 }
 

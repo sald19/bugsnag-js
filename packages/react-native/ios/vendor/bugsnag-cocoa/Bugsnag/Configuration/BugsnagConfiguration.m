@@ -60,11 +60,14 @@ static NSUserDefaults *userDefaults;
 }
 
 + (instancetype _Nonnull)loadConfig {
+    NSLog(@"SKW BugsnagConfiguration load config from plist");
     NSDictionary *options = [[NSBundle mainBundle] infoDictionary][@"bugsnag"];
     return [BSGConfigurationBuilder configurationFromOptions:options];
 }
 
 + (instancetype)loadConfigFromOptions:(NSDictionary *)options {
+    NSLog(@"SKW BugsnagConfiguration load config from options");
+
     return [BSGConfigurationBuilder configurationFromOptions:options];
 }
 
@@ -78,6 +81,8 @@ static NSUserDefaults *userDefaults;
  * @param zone This parameter is ignored. Memory zones are no longer used by Objective-C.
  */
 - (nonnull id)copyWithZone:(nullable __attribute__((unused)) NSZone *)zone {
+    NSLog(@"SKW BugsnagConfiguration.copyWithZone");
+
     BugsnagConfiguration *copy = [[BugsnagConfiguration alloc] initWithApiKey:[self.apiKey copy]];
     // Omit apiKey - it's set explicitly in the line above
     [copy setAppHangThresholdMillis:self.appHangThresholdMillis];
@@ -87,6 +92,8 @@ static NSUserDefaults *userDefaults;
     [copy setAutoTrackSessions:self.autoTrackSessions];
     [copy setBundleVersion:self.bundleVersion];
     [copy setContext:self.context];
+
+    NSLog(@"SKW BugsnagConfiguration copy.setEnabledBreadcrumbTypes: %@", self.enabledBreadcrumbTypes);
     [copy setEnabledBreadcrumbTypes:self.enabledBreadcrumbTypes];
     [copy setEnabledErrorTypes:self.enabledErrorTypes];
     [copy setEnabledReleaseStages:self.enabledReleaseStages];
@@ -180,6 +187,8 @@ static NSUserDefaults *userDefaults;
     _plugins = [NSMutableSet new];
     _enabledReleaseStages = nil;
     _redactedKeys = [NSSet setWithArray:@[@"password"]];
+
+    NSLog(@"SKW BugsnagReactNative setting types to BSGEnabledBreadcrumbTypeAll");
     _enabledBreadcrumbTypes = BSGEnabledBreadcrumbTypeAll;
     _launchDurationMillis = 5000;
     _sendLaunchCrashesSynchronously = YES;
@@ -588,6 +597,9 @@ static NSUserDefaults *userDefaults;
 
 - (void)setEnabledBreadcrumbTypes:(BSGEnabledBreadcrumbType)enabledBreadcrumbTypes {
     @synchronized (self) {
+
+        NSLog(@"SKW BugsnagConfiguration setEnabledBreadcrumbTypes: %@", enabledBreadcrumbTypes);
+
         _enabledBreadcrumbTypes = enabledBreadcrumbTypes;
     }
 }
