@@ -38,6 +38,8 @@ steps:
   - label: ':docker: Build and publish JS packages'
     key: 'publish-js'
     timeout_in_minutes: 30
+    agents:
+      queue: opensource-highpower
     plugins:
       - docker-compose#v3.9.0:
           build: publisher
