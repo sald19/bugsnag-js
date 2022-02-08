@@ -6,9 +6,7 @@ steps:
   - label: ':copyright: License Audit'
     timeout_in_minutes: 20
     agents:
-      queue: opensource-mac-cocoa-11
-    env:
-      DEVELOPER_DIR: "/Applications/Xcode12.app"
+      queue: ms-arm-12-4
     command: scripts/license_finder.sh
 
   #
@@ -108,7 +106,7 @@ steps:
     if: build.env("BUILD_RN_WITH_LATEST_NATIVES") != "true"
     timeout_in_minutes: 35
     agents:
-      queue: 'opensource-mac-aws-sam'
+      queue: ms-arm-12-4
     commands:
       # force the NPM registry as the default on CI is artifactory, which can't
       # currently install from our lockfile
