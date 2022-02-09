@@ -126,7 +126,7 @@ steps:
   - label: ':ios: Init and build RN 0.60 ipa 1'
     timeout_in_minutes: 30
     agents:
-      queue: 'opensource-mac-cocoa-11'
+      queue: ms-mac-10-15-1
     env:
       NOTIFIER_VERSION: 7.15.1
       DEBUG: true
@@ -139,7 +139,7 @@ steps:
   - label: ':ios: Init and build RN 0.60 ipa 2'
     timeout_in_minutes: 30
     agents:
-      queue: 'opensource-mac-cocoa-11'
+      queue: ms-mac-10-15-2
     env:
       NOTIFIER_VERSION: 7.15.1
       DEBUG: true
