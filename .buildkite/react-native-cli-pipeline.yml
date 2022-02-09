@@ -245,8 +245,9 @@ steps:
     key: 'rn-0-60-ipa'
     timeout_in_minutes: 30
     agents:
-      queue: 'opensource-mac-cocoa-11'
+      queue: ms-arm-11-1
     env:
+      NOTIFIER_VERSION: 7.16.0
       DEBUG: true
       LANG: "en_US.UTF-8"
       DEVELOPER_DIR: "/Applications/Xcode11.app"
@@ -258,8 +259,9 @@ steps:
     key: 'rn-0-61-ipa'
     timeout_in_minutes: 30
     agents:
-      queue: 'opensource-mac-cocoa-11'
+      queue: ms-arm-11-1
     env:
+      NOTIFIER_VERSION: 7.16.0
       DEBUG: true
       LANG: "en_US.UTF-8"
       DEVELOPER_DIR: "/Applications/Xcode11.app"
@@ -271,8 +273,9 @@ steps:
     key: 'rn-0-62-ipa'
     timeout_in_minutes: 30
     agents:
-      queue: 'opensource-mac-cocoa-11'
+      queue: ms-arm-11-1
     env:
+      NOTIFIER_VERSION: 7.16.0
       DEBUG: true
       LANG: "en_US.UTF-8"
       DEVELOPER_DIR: "/Applications/Xcode11.app"
