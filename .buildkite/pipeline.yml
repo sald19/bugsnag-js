@@ -84,7 +84,7 @@ steps:
   - label: 'Trigger React Native pipeline'
     depends_on:
 #      - 'publish-js'
-      - 'android-builder-base'
+#      - 'android-builder-base'
     trigger: 'bugsnag-js-react-native'
     build:
       branch: '${BUILDKITE_BRANCH}'
@@ -96,7 +96,7 @@ steps:
     if: build.env("BUILD_RN_WITH_LATEST_NATIVES") != "true"
     depends_on:
 #      - 'publish-js'
-      - 'android-builder-base'
+#      - 'android-builder-base'
     trigger: 'bugsnag-js-react-native-cli'
     build:
       branch: '${BUILDKITE_BRANCH}'
