@@ -155,7 +155,7 @@ edge_15:
     lineNumber: 18
     columnNumber: 7
 
-safari_6:
+safari_8:
   handled:
     errorClass: 'ReferenceError'
     errorMessage: "Can't find variable: foo"
@@ -355,7 +355,7 @@ firefox_56:
     lineNumber: 18
     columnNumber: 7
 
-firefox_latest:
+firefox_95:
   handled:
     errorClass: 'ReferenceError'
     errorMessage: 'foo is not defined'
@@ -433,7 +433,7 @@ chrome_61:
     lineNumber: 18
     columnNumber: 7
 
-chrome_latest:
+chrome_96:
   handled:
     errorClass: 'ReferenceError'
     errorMessage: 'foo is not defined'
