@@ -27,10 +27,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=chrome_43
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':chrome: v61 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -42,12 +42,12 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=chrome_61
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
-  - label: ':chrome: latest Browser tests'
+  - label: ':chrome: v96 Browser tests'
     depends_on: "browser-maze-runner-image"
     timeout_in_minutes: 20
     plugins:
@@ -57,10 +57,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
-          - --browser=chrome_latest
-    concurrency: 5
-    concurrency_group: 'browserstack'
+          - --farm=cbt
+          - --browser=chrome_96
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':ie: v8 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -72,10 +72,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=ie_8
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':ie: v9 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -87,10 +87,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=ie_9
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':ie: v10 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -102,10 +102,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=ie_10
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':ie: v11 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -117,12 +117,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=ie_11
-    env:
-      HOST: 'localhost' # IE11 needs the host set to localhost for some reason!ß
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':edge: v14 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -134,10 +132,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=edge_14
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':edge: v15 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -149,12 +147,12 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=edge_15
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
-  - label: ':safari: v6 Browser tests'
+  - label: ':safari: v8 Browser tests'
     depends_on: "browser-maze-runner-image"
     timeout_in_minutes: 20
     plugins:
@@ -164,10 +162,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
-          - --browser=safari_6
-    concurrency: 5
-    concurrency_group: 'browserstack'
+          - --farm=cbt
+          - --browser=safari_8
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':safari: v10 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -179,10 +177,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=safari_10
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':safari: v13 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -194,12 +192,12 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=safari_13
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
-  - label: ':safari: v15 Browser tests'
+  - label: ':safari: v14 Browser tests'
     depends_on: "browser-maze-runner-image"
     timeout_in_minutes: 20
     plugins:
@@ -209,10 +207,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
-          - --browser=safari_15
-    concurrency: 5
-    concurrency_group: 'browserstack'
+          - --farm=cbt
+          - --browser=safari_14
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':iphone: iOS 10.3 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -224,12 +222,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
-          - --browser=iphone_7
-    env:
-      HOST: "bs-local.com"
-    concurrency: 5
-    concurrency_group: 'browserstack'
+          - --farm=cbt
+          - --browser=iphone_7_simulator
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':android: Samsung Galaxy S8 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -241,10 +237,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
-          - --browser=android_s8
-    concurrency: 5
-    concurrency_group: 'browserstack'
+          - --farm=cbt
+          - --browser=android_s7
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':firefox: v30 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -256,10 +252,10 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=firefox_30
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
   - label: ':firefox: v56 Browser tests'
     depends_on: "browser-maze-runner-image"
@@ -271,12 +267,12 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
+          - --farm=cbt
           - --browser=firefox_56
-    concurrency: 5
-    concurrency_group: 'browserstack'
+    concurrency: 10
+    concurrency_group: 'cbt'
 
-  - label: ':firefox: latest Browser tests'
+  - label: ':firefox: v95 Browser tests'
     depends_on: "browser-maze-runner-image"
     timeout_in_minutes: 20
     plugins:
@@ -286,7 +282,7 @@ steps:
         use-aliases: true
         verbose: true
         command:
-          - --farm=bs
-          - --browser=firefox_latest
-    concurrency: 5
-    concurrency_group: 'browserstack'
+          - --farm=cbt
+          - --browser=firefox_95
+    concurrency: 10
+    concurrency_group: 'cbt'
