@@ -29,7 +29,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=chrome_43
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':chrome: v61 Browser tests'
@@ -44,7 +44,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=chrome_61
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':chrome: v96 Browser tests'
@@ -59,7 +59,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=chrome_96
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':ie: v8 Browser tests'
@@ -74,7 +74,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=ie_8
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':ie: v9 Browser tests'
@@ -89,7 +89,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=ie_9
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':ie: v10 Browser tests'
@@ -104,7 +104,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=ie_10
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':ie: v11 Browser tests'
@@ -119,7 +119,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=ie_11
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':edge: v14 Browser tests'
@@ -134,7 +134,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=edge_14
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':edge: v15 Browser tests'
@@ -149,7 +149,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=edge_15
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':safari: v8 Browser tests'
@@ -164,7 +164,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=safari_8
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':safari: v10 Browser tests'
@@ -179,7 +179,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=safari_10
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':safari: v13 Browser tests'
@@ -194,7 +194,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=safari_13
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':safari: v14 Browser tests'
@@ -209,7 +209,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=safari_14
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':iphone: iOS 10.3 Browser tests'
@@ -224,7 +224,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=iphone_7_simulator
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':android: Samsung Galaxy S8 Browser tests'
@@ -239,7 +239,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=android_s7
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':firefox: v30 Browser tests'
@@ -254,7 +254,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=firefox_30
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':firefox: v56 Browser tests'
@@ -269,7 +269,7 @@ steps:
         command:
           - --farm=cbt
           - --browser=firefox_56
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
 
   - label: ':firefox: v95 Browser tests'
@@ -284,5 +284,5 @@ steps:
         command:
           - --farm=cbt
           - --browser=firefox_95
-    concurrency: 10
+    concurrency: 20
     concurrency_group: 'cbt'
