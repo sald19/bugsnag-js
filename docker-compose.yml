@@ -291,7 +291,7 @@ services:
     volumes:
       - ~/.gitconfig:/home/releaser/.gitconfig
       - ~/.npmrc:/home/releaser/.npmrc
-
+      - ../bugsnag-js-bare:/home/bugsnag-js-bare
 networks:
   default:
     name: ${BUILDKITE_JOB_ID:-js-maze-runner}

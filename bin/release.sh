@@ -8,16 +8,16 @@ error_missing_field () {
 }
 
 # Ensure all required variables are set before doing any work
-if [[ -z ${GITHUB_USER:-} ]]; then error_missing_field "GITHUB_USER"; fi
-if [[ -z ${GITHUB_ACCESS_TOKEN:-} ]]; then error_missing_field "GITHUB_ACCESS_TOKEN"; fi
+# if [[ -z ${GITHUB_USER:-} ]]; then error_missing_field "GITHUB_USER"; fi
+# if [[ -z ${GITHUB_ACCESS_TOKEN:-} ]]; then error_missing_field "GITHUB_ACCESS_TOKEN"; fi
 if [[ -z ${RELEASE_BRANCH:-} ]]; then error_missing_field "RELEASE_BRANCH"; fi
 if [[ -z ${VERSION:-} ]]; then error_missing_field "VERSION"; fi
-if [[ -z ${AWS_ACCESS_KEY_ID:-} ]]; then error_missing_field "AWS_ACCESS_KEY_ID"; fi
-if [[ -z ${AWS_SECRET_ACCESS_KEY:-} ]]; then error_missing_field "AWS_SECRET_ACCESS_KEY"; fi
+# if [[ -z ${AWS_ACCESS_KEY_ID:-} ]]; then error_missing_field "AWS_ACCESS_KEY_ID"; fi
+# if [[ -z ${AWS_SECRET_ACCESS_KEY:-} ]]; then error_missing_field "AWS_SECRET_ACCESS_KEY"; fi
 
 git clone --single-branch \
   --branch "$RELEASE_BRANCH" \
-  https://"$GITHUB_USER":"$GITHUB_ACCESS_TOKEN"@github.com/bugsnag/bugsnag-js.git
+  /home/bugsnag-js-bare bugsnag-js
 
 cd /app/bugsnag-js
 
@@ -49,11 +49,11 @@ else
       ;;
 
     *)
-      npx lerna publish "$VERSION"
+      npx lerna publish "$VERSION" --registry "http://host.docker.internal:4873"
       ;;
   esac
 fi
 
 if [ "$BROWSER_PACKAGE_CHANGED" -eq 1 ] || [ "$FORCE_CDN_UPLOAD" -eq 1]; then
-  npm run cdn-upload
+  echo "running npm run cdn-upload"
 fi
