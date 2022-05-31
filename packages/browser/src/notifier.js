@@ -29,6 +29,7 @@ const pluginInlineScriptContent = require('@bugsnag/plugin-inline-script-content
 const pluginSession = require('@bugsnag/plugin-browser-session')
 const pluginIp = require('@bugsnag/plugin-client-ip')
 const pluginStripQueryString = require('@bugsnag/plugin-strip-query-string')
+const pluginCause = require('@bugsnag/plugin-cause')
 
 // delivery mechanisms
 const dXDomainRequest = require('@bugsnag/delivery-x-domain-request')
@@ -57,6 +58,7 @@ const Bugsnag = {
       pluginInteractionBreadcrumbs(),
       pluginNetworkBreadcrumbs(),
       pluginConsoleBreadcrumbs,
+      pluginCause,
 
       // this one added last to avoid wrapping functionality before bugsnag uses it
       pluginInlineScriptContent()

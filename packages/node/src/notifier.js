@@ -28,6 +28,7 @@ const pluginNodeUnhandledRejection = require('@bugsnag/plugin-node-unhandled-rej
 const pluginIntercept = require('@bugsnag/plugin-intercept')
 const pluginContextualize = require('@bugsnag/plugin-contextualize')
 const pluginStackframePathNormaliser = require('@bugsnag/plugin-stackframe-path-normaliser')
+const pluginCause = require('@bugsnag/plugin-cause')
 
 const internalPlugins = [
   pluginApp,
@@ -40,7 +41,8 @@ const internalPlugins = [
   pluginNodeUnhandledRejection,
   pluginIntercept,
   pluginContextualize,
-  pluginStackframePathNormaliser
+  pluginStackframePathNormaliser,
+  pluginCause
 ]
 
 const Bugsnag = {
