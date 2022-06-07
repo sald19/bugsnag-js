@@ -23,6 +23,20 @@ describe('@bugsnag/core/event', () => {
       ])
       expect(r.errors[0].stacktrace.length).toBe(0)
     })
+
+    it('flattens error.cause frames into the errors array', () => {
+      // @ts-ignore:
+      const err1 = Error('This is the first error', { cause: "Not an error" })
+      // @ts-ignore
+      const err2 = Error("This is the second error", { cause: err1 })
+      // @ts-ignore
+      const event = new Event(err2.name, err2.message, ErrorStackParser.parse(err2), undefined, err2)
+      expect(event.errors.length).toBe(2)
+      expect(event.errors[1].errorClass).toBe('Error')
+      expect(event.errors[1].errorMessage).toBe('This is the first error')
+      expect(event.errors[1].type).toBe('browserjs')
+      expect(event.errors[1]).toHaveProperty("stacktrace")
+    })
   })
 
   describe('addMetadata()', () => {

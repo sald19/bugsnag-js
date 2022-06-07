@@ -9,6 +9,48 @@ const metadataDelegate = require('./lib/metadata-delegate')
 const featureFlagDelegate = require('./lib/feature-flag-delegate')
 const isError = require('./lib/iserror')
 
+function createError (errorClass, errorMessage, type, stacktrace) {
+  return {
+    errorClass: ensureString(errorClass),
+    errorMessage: ensureString(errorMessage),
+    type,
+    stacktrace: reduce(stacktrace, (accum, frame) => {
+      const f = formatStackframe(frame)
+      // don't include a stackframe if none of its properties are defined
+      try {
+        if (JSON.stringify(f) === '{}') return accum
+        return accum.concat(f)
+      } catch (e) {
+        return accum
+      }
+    }, [])
+  }
+}
+
+function getCauseStack (error) {
+  if (error.cause) {
+    return [error, ...getCauseStack(error.cause)]
+  } else {
+    return [error]
+  }
+}
+
+function getCauseArray (originalError) {
+  if (!originalError) return []
+
+  const causes = getCauseStack(originalError).slice(1) // get all causes, skipping the original error
+
+  return causes.reduce((previousErrors, cause) => {
+    if (isError(cause)) {
+      const [error] = normaliseError(cause, false, 'error cause')
+      const errObj = createError(error.name, error.message, Event.__type, ErrorStackParser.parse(error))
+      return [...previousErrors, errObj]
+    } else {
+      return previousErrors
+    }
+  }, []);
+}
+
 class Event {
   constructor (errorClass, errorMessage, stacktrace = [], handledState = defaultHandledState(), originalError) {
     this.apiKey = undefined
@@ -33,21 +75,8 @@ class Event {
     this._session = undefined
 
     this.errors = [
-      {
-        errorClass: ensureString(errorClass),
-        errorMessage: ensureString(errorMessage),
-        type: Event.__type,
-        stacktrace: reduce(stacktrace, (accum, frame) => {
-          const f = formatStackframe(frame)
-          // don't include a stackframe if none of its properties are defined
-          try {
-            if (JSON.stringify(f) === '{}') return accum
-            return accum.concat(f)
-          } catch (e) {
-            return accum
-          }
-        }, [])
-      }
+      createError(errorClass, errorMessage, Event.__type, stacktrace),
+      ...getCauseArray(originalError, handledState)
     ]
 
     // Flags.
