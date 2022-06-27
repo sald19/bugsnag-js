@@ -170,6 +170,23 @@ steps:
     env:
       REACT_NATIVE_VERSION: "rn0_67"
 
+  - label: ':runner: RN 0.69 CLI tests'
+    depends_on: "cli-maze-image"
+    timeout_in_minutes: 20
+    plugins:
+      artifacts#v1.5.0:
+        upload: ./test/react-native-cli/maze_output/**/*
+      docker-compose#v3.9.0:
+        pull: react-native-cli-tool-maze-runner
+        run: react-native-cli-tool-maze-runner
+        use-aliases: true
+        command:
+          - --fail-fast
+          - --retry=2
+          - features/cli-tests
+    env:
+      REACT_NATIVE_VERSION: "rn0_69"
+
   #
   # Built app test fixtures - Android
   #
