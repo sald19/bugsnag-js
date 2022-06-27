@@ -24,7 +24,6 @@ steps:
     timeout_in_minutes: 60
     env:
       REACT_NATIVE_VERSION: "rn0.60"
-      LANG: "en_US.UTF-8"
     plugins:
       - docker-compose#v3.9.0:
           run: react-native-android-builder
@@ -38,7 +37,6 @@ steps:
       queue: "opensource-mac-cocoa-10.15"
     env:
       REACT_NATIVE_VERSION: rn0.60
-      LANG: "en_US.UTF-8"
       DEVELOPER_DIR: "/Applications/Xcode11.app"
     artifact_paths: build/rn0.60.ipa
     commands:
@@ -64,7 +62,6 @@ steps:
       queue: "opensource-arm-mac-cocoa-12"
     env:
       REACT_NATIVE_VERSION: rn0.66
-      LANG: "en_US.UTF-8"
       DEVELOPER_DIR: "/Applications/Xcode13.app"
     artifact_paths: build/rn0.66.ipa
     commands:
@@ -90,9 +87,33 @@ steps:
       queue: "opensource-arm-mac-cocoa-12"
     env:
       REACT_NATIVE_VERSION: rn0.67
-      LANG: "en_US.UTF-8"
       DEVELOPER_DIR: "/Applications/Xcode13.app"
     artifact_paths: build/rn0.67.ipa
+    commands:
+      - npm run test:build-react-native-ios
+
+  - label: ':android: Build RN 0.69 apk'
+    key: "rn-0-69-apk"
+    depends_on:
+      - "android-builder-image"
+    timeout_in_minutes: 60
+    env:
+      REACT_NATIVE_VERSION: "rn0.69"
+    plugins:
+      - docker-compose#v3.9.0:
+          run: react-native-android-builder
+    artifact_paths:
+      - build/rn0.69.apk
+
+  - label: ':ios: Build RN 0.69 ipa'
+    key: "rn-0-69-ipa"
+    timeout_in_minutes: 60
+    agents:
+      queue: "opensource-arm-mac-cocoa-12"
+    env:
+      REACT_NATIVE_VERSION: rn0.69
+      DEVELOPER_DIR: "/Applications/Xcode13.app"
+    artifact_paths: build/rn0.69.ipa
     commands:
       - npm run test:build-react-native-ios
 
@@ -345,6 +366,30 @@ steps:
     concurrency_group: 'browserstack-app'
     concurrency_method: eager
 
+  - label: ':android: RN 0.69 Android 11 end-to-end tests'
+    depends_on: "rn-0-69-apk"
+    timeout_in_minutes: 60
+    plugins:
+      artifacts#v1.5.0:
+        download: "build/rn0.69.apk"
+        upload: ./test/react-native/maze_output/**/*
+      docker-compose#v3.9.0:
+        pull: react-native-maze-runner
+        run: react-native-maze-runner
+        use-aliases: true
+        command:
+          - --app=build/rn0.69.apk
+          - --farm=bs
+          - --device=ANDROID_11_0
+          - --a11y-locator
+          - --fail-fast
+    env:
+      SKIP_NAVIGATION_SCENARIOS: "true"
+      HERMES: "true"
+    concurrency: 24
+    concurrency_group: 'browserstack-app'
+    concurrency_method: eager
+
   - label: ':android: RN 0.68 (Hermes) Android 12 end-to-end tests'
     depends_on: "rn-0-68-hermes-apk"
     timeout_in_minutes: 60
@@ -406,6 +451,31 @@ steps:
         use-aliases: true
         command:
           - --app=build/rn0.67.ipa
+          - --farm=bs
+          - --device=IOS_14
+          - --a11y-locator
+          - --appium-version=1.18.0
+          - --fail-fast
+    env:
+      SKIP_NAVIGATION_SCENARIOS: "true"
+      HERMES: "true"
+    concurrency: 24
+    concurrency_group: 'browserstack-app'
+    concurrency_method: eager
+
+  - label: ':ios: RN 0.69 iOS 14 end-to-end tests'
+    depends_on: "rn-0-69-ipa"
+    timeout_in_minutes: 60
+    plugins:
+      artifacts#v1.5.0:
+        download: "build/rn0.69.ipa"
+        upload: ./test/react-native/maze_output/**/*
+      docker-compose#v3.9.0:
+        pull: react-native-maze-runner
+        run: react-native-maze-runner
+        use-aliases: true
+        command:
+          - --app=build/rn0.69.ipa
           - --farm=bs
           - --device=IOS_14
           - --a11y-locator
