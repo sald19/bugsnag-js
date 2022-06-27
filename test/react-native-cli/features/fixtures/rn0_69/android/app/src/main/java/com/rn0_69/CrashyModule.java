@@ -1,4 +1,4 @@
-package com.rn0_67;
+package com.rn0_69;
 
 import com.bugsnag.android.Bugsnag;
 

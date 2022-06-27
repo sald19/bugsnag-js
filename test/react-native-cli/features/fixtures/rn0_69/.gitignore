@@ -1,7 +1,3 @@
-# Ignore lockfiles as they can influence test runs
-package-lock.json
-yarn.lock
-
 # OSX
 #
 .DS_Store
@@ -65,3 +61,7 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
+
+# Ignore lockfiles as they can influence test runs
+package-lock.json
+yarn.lock

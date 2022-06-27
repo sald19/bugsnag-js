@@ -1,4 +1,4 @@
-package com.rn0_67;
+package com.rn0_69;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
